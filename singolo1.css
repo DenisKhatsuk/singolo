@@ -149,7 +149,7 @@
 }
 
 .row-3-columns .column {
-  width: 31.8%;
+  width: 31.9%;
 }
 
 .column__icon {
@@ -174,4 +174,5 @@
   font-size: 12px;
   font-family: "Lato", "Helvetica", sans-serif;
   line-height: 21px;
+  text-align: justify;
 }
