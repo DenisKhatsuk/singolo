@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Singolo 1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="singolo1.css">
 </head>
 <body>
@@ -23,11 +23,11 @@
 
       <nav class="header__navigation">
         <ul class="navigation">
-          <li><a href="#_">Home</a></li>
-          <li><a href="#_">Services</a></li>
-          <li><a href="#_">Portfolio</a></li>
-          <li><a href="#_">About</a></li>
-          <li><a href="#_">Contact</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#_">Home</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#_">Services</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#_">Portfolio</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#_">About</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#_">Contact</a></li>
         </ul>
       </nav>
 
@@ -53,7 +53,7 @@
                   <img src="assets/img/phone_background_1.jpg" alt="Phone background image">
                 </div>
               </div>
-              <div class="iphone slider__iphone iphone_horizontal">
+              <div class="iphone slider__iphone slider__iphone_horizontal">
                 <div class="iphone__body">
                   <img src="assets/img/iPhone.png" alt="Iphone image">
                 </div>
@@ -67,8 +67,8 @@
             </div>
 
             <div class="slider__nav">
-              <div class="arrow arrow_prev"><img src="assets/img/arrow_left.png" alt="Slider arrow left"></div>
-              <div class="arrow arrow_next"><img src="assets/img/arrow_right.png" alt="Slider arrow right"></div>
+              <div class="slider__arrow slider_arrow-prev"><img src="assets/img/arrow_left.png" alt="Slider arrow left"></div>
+              <div class="slider__arrow slider_arrow-next"><img src="assets/img/arrow_right.png" alt="Slider arrow right"></div>
             </div>
 
           </div>
@@ -77,10 +77,12 @@
       
       <section class="services">
         <div class="wrapper-inner">
+
           <h2 class="services__title">Our Services</h2>
           <p class="services__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo
             luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor
-            mauris condimentum nibh.</p>
+            mauris condimentum nibh.
+          </p>
         
           <div class="row-3-columns">
             <div class="column">
@@ -88,8 +90,8 @@
                 <img src="assets/img/ico_pen.png" alt="Pen icon">
               </div>
               <div class="column__content">
-                <h3>Custom Design</h3>
-                <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+                <h3 class="column__title">Custom Design</h3>
+                <p class="column__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
               </div>
             </div>
             <div class="column">
@@ -97,8 +99,8 @@
                 <img src="assets/img/ico_bulb.png" alt="Bulb icon">
               </div>
               <div class="column__content">
-                <h3>Inovative Ideas</h3>
-                <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+                <h3 class="column__title">Inovative Ideas</h3>
+                <p class="column__text">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
               </div>
             </div>
             <div class="column">
@@ -106,8 +108,8 @@
                 <img src="assets/img/ico_heart.png" alt="Heart icon">
               </div>
               <div class="column__content">
-                <h3>Love Is The Answer</h3>
-                <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+                <h3 class="column__title">Love Is The Answer</h3>
+                <p class="column__text">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
               </div>
             </div>
           </div>
@@ -118,8 +120,8 @@
                 <img src="assets/img/ico_phone.png" alt="Phone icon">
               </div>
               <div class="column__content">
-                <h3>Responsive Layout</h3>
-                <p>Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Praesent elit leo.</p>
+                <h3 class="column__title">Responsive Layout</h3>
+                <p class="column__text">Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Praesent elit leo.</p>
               </div>
             </div>
             <div class="column">
@@ -127,8 +129,8 @@
                 <img src="assets/img/ico_bubble.png" alt="Bubble icon">
               </div>
               <div class="column__content">
-                <h3>24 /7 Support</h3>
-                <p>Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellentesque egestas venenatis lorem .</p>
+                <h3 class="column__title">24 /7 Support</h3>
+                <p class="column__text">Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellentesque egestas venenatis lorem .</p>
               </div>
             </div>
             <div class="column">
@@ -136,11 +138,12 @@
                 <img src="assets/img/ico_star.png" alt="Star icon">
               </div>
               <div class="column__content">
-                <h3>Feel Like A Star</h3>
-                <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
+                <h3 class="column__title">Feel Like A Star</h3>
+                <p class="column__text">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
