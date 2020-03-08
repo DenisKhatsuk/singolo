@@ -3,11 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-  <link rel="stylesheet" href="singolo3.css">
   <title>Singolo 3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="singolo3.css">
 </head>
 <body>
-  
+<main>
+  <div class="wrapper">
+    <section class="contact-us">
+      <div class="wrapper-inner">
+        
+        <h2 class="contact-us__title">Get a Quote</h2>
+        <p class="contact-us__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo
+          luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor
+          mauris condimentum nibh.
+        </p>
+        
+        <div class="row-2-columns columns-70-30">
+          <div class="column  column_70">
+            <form action="/login" method="POST">
+              <input type="text" name="username" id="" placeholder="Name (Required)" required>
+              <input type="email" name="email" id="" placeholder="Email (Required)" required>
+              <input type="text" name="subject" id="" placeholder="Subject">
+              <textarea name="message" id="" cols="30" rows="10" placeholder="Describe your project in detail..."></textarea>
+              <button type="submit">Send</button>
+            </form>
+          </div>
+          <div class="column column_30">
+            <h3 class="column__title column__title_contact">Contact Information</h3>
+            <p class="column__text  column__text_contact">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
+            <div class="contact-info">
+              <a class="contact-info__link" href="#_">
+                <span class="icon icon_location"></span>
+                Elm St. 14/05 Lost City
+              </a>
+              <a class="contact-info__link" href="tel:+03528 331 86 35">
+                <span class="icon icon_phone"></span>
+                03528 331 86 35
+              </a>
+              <a class="contact-info__link" href="mailto:info@singolo.com">
+                <span class="icon icon_mail"></span>
+                info@singolo.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</main>
+<div class="wrapper">
+  <footer class="footer">
+    <div class="wrapper-inner">
+      <div class="row-2-columns columns-50-50">
+        <div class="column column_50">
+          <div class="footer__copyright">
+            © Copyright 2013
+          </div>
+        </div>
+        <div class="column column_50">
+          <div class="social-links footer__social">
+            <a href="#_" class="social-links__link footer__social-link" target="_blank"><img src="./assets/img/social/facebook.png"
+                alt="Facebook icon"></a>
+            <a href="#_" class="social-links__link footer__social-link" target="_blank"><img src="./assets/img/social/google.png"
+                alt="Google+ icon"></a>
+            <a href="#_" class="social-links__link footer__social-link" target="_blank"><img src="./assets/img/social/twitter.png"
+                alt="Twitter icon"></a>
+            <a href="#_" class="social-links__link footer__social-link" target="_blank"><img src="./assets/img/social/linkedIn.png"
+                alt="LinkedIn icon"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>

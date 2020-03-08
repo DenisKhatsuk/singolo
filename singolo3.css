@@ -1,0 +1,166 @@
+/* Styles reset */
+
+* {
+  box-sizing: border-box;
+}
+
+/* -- Wrapper -- */
+
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+/* -- Wrapper inner -- */
+
+.wrapper-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* -- 2 columns layout -- */
+
+.row-2-columns {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 19px;
+}
+
+/* -- Column -- */
+
+.column_30 {
+  width: 31.914893%;
+}
+
+.column_50 {
+  width: 48.936170%;
+}
+
+.column_70 {
+  width: 65.957446%;
+}
+
+/* -- Contact us -- */
+
+.contact-us {
+  padding: 40px 0 50px;
+  font-family: "Lato", "Helvetica", sans-serif;
+  color: #f0d8d9;
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b;
+}
+
+.contact-us__title {
+  margin: 20px 0 19px;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.1px;
+}
+
+.contact-us__text {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: "Lato", "Helvetica", sans-serif;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: -0.2px;
+}
+
+.column__title {
+  margin: 0;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.1px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.column__title_contact {
+  margin-top: 6px;
+  letter-spacing: 0;
+}
+
+.column__text {
+  height: 63px;
+  margin-top: 9px;
+  font-size: 12px;
+  font-family: "Lato", "Helvetica", sans-serif;
+  line-height: 21px;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.column__text_contact {
+  height: auto;
+  overflow: visible;
+  line-height: 22px;
+  letter-spacing: -0.1px;
+}
+
+/* -- Contact info -- */
+
+.contact-info {
+  margin-top: 19px;
+}
+
+.contact-info__link {
+  display: block;
+  padding: 4px 0;
+  color: #f0d8d9;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: -0.2px;
+  text-decoration: none;
+}
+
+/* -- Icon -- */
+
+.icon {
+  display: inline-block;
+  width: 13px;
+  height: 12px;
+  margin-right: 7px;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.icon_location {
+  background-image: url("./assets/img/icons/location.png")
+}
+
+.icon_phone {
+  background-image: url("./assets/img/icons/phone.png")
+}
+
+.icon_mail {
+  background-image: url("./assets/img/icons/mail.png")
+}
+
+/* -- Footer -- */
+
+.footer {
+  height: 76px;
+  background-color: #2d303a;
+}
+
+.footer__social {
+  position: relative;
+  top: 3px;
+  left: 3px;
+  display: inline-block;
+  float: right;
+}
+
+.footer__social-link {
+  padding: 2px;
+}
+
+.footer__copyright {
+  margin: 12px 0 0 3px;
+  font-size: 12px;
+  font-family: "Lato", "Helvetica", sans-serif;
+  letter-spacing: -0.2px;
+  color: #666d89;
+}
