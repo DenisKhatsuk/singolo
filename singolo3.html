@@ -21,13 +21,13 @@
         </p>
         
         <div class="row-2-columns columns-70-30">
-          <div class="column  column_70">
-            <form action="/login" method="POST">
-              <input type="text" name="username" id="" placeholder="Name (Required)" required>
-              <input type="email" name="email" id="" placeholder="Email (Required)" required>
-              <input type="text" name="subject" id="" placeholder="Subject">
-              <textarea name="message" id="" cols="30" rows="10" placeholder="Describe your project in detail..."></textarea>
-              <button type="submit">Send</button>
+          <div class="column column_70">
+            <form class="contact-form" action="/login" method="POST">
+              <input type="text" name="username" id="" placeholder="Name (Required)" class="contact-form__input" required>
+              <input type="email" name="email" id="" placeholder="Email (Required)" class="contact-form__input" required>
+              <input type="text" name="subject" id="" class="contact-form__input" placeholder="Subject">
+              <textarea name="message" id="" class="contact-form__input contact-form__textarea" cols="30" rows="14" placeholder="Describe your project in detail..."></textarea>
+              <button class="contact-form__button" type="submit">Send</button>
             </form>
           </div>
           <div class="column column_30">
