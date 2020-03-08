@@ -61,10 +61,10 @@
 
 .title-hidden {
   position: absolute;
-  overflow: hidden;
+  left: -1px;
   width: 1px;
   height: 1px;
-  left: -1px;
+  overflow: hidden;
 }
 
 /* -- Logo -- */
@@ -594,8 +594,8 @@
 }
 
 .footer__social-link {
-  padding: 2px;
   margin: 0;
+  padding: 2px;
 }
 
 .footer__copyright {
