@@ -319,6 +319,10 @@
   color: #f48c8f;
 }
 
+.contact-form__input::-ms-input-placeholder {
+  color: #f48c8f;
+}
+
 .contact-form__textarea {
   padding: 10px 15px;
   resize: none;
