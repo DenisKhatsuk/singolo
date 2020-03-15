@@ -113,7 +113,8 @@
 }
 
 .navigation__link:hover,
-.navigation__link:active {
+.navigation__link:active,
+.navigation__link_active {
   color: #f06c64;
 }
 
