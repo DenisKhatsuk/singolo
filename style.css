@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /** End - Styles reset **/
 
 /** Layout **/
@@ -13,6 +17,14 @@
 .wrapper {
   width: 1020px;
   margin: 0 auto;
+}
+
+/* -- Wrapper Header -- */
+.wrapper-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 4;
 }
 
 /* -- Wrapper inner -- */
@@ -116,6 +128,14 @@
 .navigation__link:active,
 .navigation__link_active {
   color: #f06c64;
+}
+
+/* -- Navigation Anchor -- */
+.navigation-anchor {
+  display: block;
+  position: relative;
+  top: -95px;
+  visibility: hidden;
 }
 
 /* -- iPhone -- */
