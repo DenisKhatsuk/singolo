@@ -475,7 +475,7 @@ html {
 /* -- Portfolio -- */
 
 .portfolio {
-  padding: 40px 0 47px;
+  padding: 40px 0 67px;
   font-family: "Lato", "Helvetica", sans-serif;
   color: #666d89;
   background-color: #2d303a;
@@ -497,26 +497,29 @@ html {
 }
 
 .portfolio__tags {
-  padding: 13px 0 21px 1px;
+  padding: 13px 0 1px 1px;
 }
 
-.portfolio__row {
-  padding-bottom: 17px;
+.portfolio__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.portfolio__row .portfolio__image {
+.portfolio__item {
+  padding-top: 20px;
+}
+
+.portfolio__image {
   max-height: 190px;
   overflow: hidden;
+  line-height: 0;
 }
 
-.portfolio .portfolio__row:nth-of-type(n+5) {
+.portfolio__item:nth-child(n+13) {
   display: none;
 }
-
-.portfolio__row .column:nth-of-type(n+5) {
-  display: none;
-}
-
 /*-- About Us --*/
 
 .about-us {
