@@ -1,5 +1,4 @@
-
-function makeActive(parentClass, childrenClass, activeClass) {
+function addSelectedStateToChildOnClick(parentClass, childrenClass, activeClass) {
   let parent = document.getElementsByClassName(parentClass)[0];
   let children = parent.getElementsByClassName(childrenClass);
 
@@ -11,5 +10,7 @@ function makeActive(parentClass, childrenClass, activeClass) {
   }, false);
 }
 
-makeActive('navigation', 'navigation__link', 'navigation__link_active');
-makeActive('tags', 'tag__link', 'tag_active');
+
+
+addSelectedStateToChildOnClick('navigation', 'navigation__link', 'navigation__link_active');
+addSelectedStateToChildOnClick('tags', 'tag__link', 'tag_active');
