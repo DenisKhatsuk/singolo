@@ -4,7 +4,12 @@ window.onload = function() {
   addSelectedStateToItemOnClick('portfolio__body', 'portfolio__item', 'portfolio__item_active');
 
   addPortfolioTagsHandler();
+
+  interactiveHomePhoneButton('iphone-1');
+  interactiveHomePhoneButton('iphone-2');
 }
+
+// Common functions
 
 function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
 
@@ -23,6 +28,8 @@ function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
   }, false);
 
 }
+
+// Portfolio related functions
 
 function hideAllItemsWithClass(parentClass, itemClass, hiddenClass) {
   let parent = document.getElementsByClassName(parentClass)[0];
@@ -56,4 +63,14 @@ function addPortfolioTagsHandler() {
   }, false);
 }
 
+// Slider related functions
+
+function interactiveHomePhoneButton(parentId) {
+  let parent = document.getElementById(parentId);
+  let homeButton = parent.getElementsByClassName('iphone-home-img')[0];
+  let screenImage = parent.getElementsByClassName('iphone__background')[0];
+  homeButton.addEventListener('click',function(){
+    screenImage.classList.toggle('iphone__background_hidden');
+  }, false);
+}
 

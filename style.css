@@ -170,6 +170,17 @@ html {
   left: -14px;
 }
 
+.iphone__background_hidden {
+  display: none;
+}
+
+.iphone-home-img {
+  position: relative;
+  bottom: 55px;
+  left: 86px;
+  cursor: pointer;
+}
+
 /* -- Slider -- */
 
 .slider__iphone {
