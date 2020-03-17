@@ -663,7 +663,7 @@ html {
   display: none;
 }
 
-.portfolio_item:not(.portfolio_item_hidden):nth-of-type(n+13) {
+.portfolio__item:not(.portfolio__item_hidden):nth-of-type(n+13) {
   display: none;
 }
 
