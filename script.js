@@ -149,8 +149,8 @@ function hideModal(modalOverlayClass, modalOverlayHiddenClass) {
 
 function getDataFromForm(formClass) {
   let form = document.getElementsByClassName(formClass)[0];
-  let subjectText = form.querySelector('[name="subject"]').value;
-  let descriptionText = form.querySelector('[name="message"]').value;
+  let subjectText = form.querySelector('[name="subject"]').value.toString();
+  let descriptionText = form.querySelector('[name="message"]').value.toString();
   let data = {
     subject: subjectText,
     description: descriptionText,
