@@ -162,8 +162,8 @@ function showFormDataInModal(modalOverlayClass) {
   let data = getDataFromForm('contact-form');
   let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
   let title = 'The letter was sent';
-  let subject = data.subject != '' ? data.subject : 'Without subject';
-  let description = data.description != '' ? data.description : 'Without description';
+  let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
+  let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
   let titleEl = overlayWrapper.getElementsByClassName('submit-message__title')[0];
   let subjectEl = overlayWrapper.getElementsByClassName('submit-message__subject')[0];
   let descriptionEl = overlayWrapper.getElementsByClassName('submit-message__description')[0];
