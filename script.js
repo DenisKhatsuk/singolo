@@ -7,6 +7,9 @@ window.onload = function() {
 
   interactiveHomePhoneButton('iphone-1');
   interactiveHomePhoneButton('iphone-2');
+  interactiveHomePhoneButton('iphone-3');
+
+  activateSlider('slider', 'slider__slide');
 }
 
 // Common functions
@@ -74,3 +77,58 @@ function interactiveHomePhoneButton(parentId) {
   }, false);
 }
 
+function activateSlider(sliderClass, slideClass) {
+  let slider = document.getElementsByClassName(sliderClass)[0];
+  let slides = slider.getElementsByClassName(slideClass);
+  let currentSlide = 0;
+  let isEnabled = true;
+  arrowClickHandler();
+
+  function changeCurrentSlide(n) {
+    currentSlide = (n + slides.length) % slides.length;
+  }
+
+  function hideSlide(direction) {
+    isEnabled = false;
+    slides[currentSlide].classList.add(direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('slider__slide_active', direction);
+    },false);
+  }
+
+  function showSlide(direction) {
+    slides[currentSlide].classList.add('slider__slide_next', direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('slider__slide_next', direction);
+      this.classList.add('slider__slide_active');
+      isEnabled = true;
+    },false);
+  }
+
+  function nextSlide(n) {
+    hideSlide('slide-to-left');
+    changeCurrentSlide(n + 1);
+    showSlide('slide-from-right');
+  }
+
+  function previousSlide(n) {
+    hideSlide('slide-to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('slide-from-left');
+  }
+
+  function arrowClickHandler() {
+    let arrowNext = slider.getElementsByClassName('slider_arrow-next')[0];
+    let arrowPrev = slider.getElementsByClassName('slider_arrow-prev')[0];
+    arrowNext.addEventListener('click', function(){
+      if (isEnabled) {
+        nextSlide(currentSlide);
+      }
+    }, false);
+    arrowPrev.addEventListener('click', function(){
+      if (isEnabled) {
+        previousSlide(currentSlide);
+      }
+    }, false);
+  }
+}

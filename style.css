@@ -183,6 +183,37 @@ html {
 
 /* -- Slider -- */
 
+.slider {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.slider__slide {
+  position: relative;
+  display: none;
+  height: 600px;
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b;
+  animation: 0.5s ease-in-out;
+}
+
+.slider__slide_colored {
+  background-color: #648bf0;
+  border-bottom: 6px solid #5677cd;
+}
+
+.slider__slide_active {
+  display: block;
+}
+
+.slider__slide_next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+}
+
 .slider__iphone {
   top: 39px;
   left: 112px;
@@ -216,13 +247,19 @@ html {
   left: -125px;
 }
 
-.slider__nav {
-  position: relative;
-  top: 263px;
-}
+/* .slider__nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+} */
 
 .slider__arrow {
   position: absolute;
+  top: 50%;
+  width: 10%;
+  height: 20%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -233,6 +270,98 @@ html {
 .slider_arrow-next {
   right: 40px;
 } 
+
+.slider__arrow img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider_arrow-next img {
+  right: 0;
+}
+
+/* -- Slide Animations -- */
+
+.slide-to-left {
+  animation-name: left;
+}
+
+.slide-to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.slide-from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.slide-from-right {
+  animation-name: right;  
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+/* -- Slides -- */
+
+#hero__slide-2 .slider__iphone {
+  margin: 0 auto;
+  display: block;
+}
+
+#iphone-3 {
+  top: 39px;
+  width: 255px;
+  z-index: 3;
+  transform: translateX(-50%);
+}
+
+#iphone-4 {
+  top: 151px;
+  left: -198px;
+  width: 157px;
+}
+
+#iphone-5 {
+  top: 151px;
+  right: -165px;
+  left: auto;
+  width: 157px;
+}
+
+#iphone-3 .iphone-home-img {
+  bottom: 84px;
+  left: 92px;
+}
+
+#iphone-3 .iphone__background {
+  top: 69px;
+  left: 14px;
+  width: 201px;
+  height: 354px;
+}
+
+#iphone-3 .iphone-background-img {
+  top: 0; 
+  left: 0;
+}
 
 /* -- Service -- */
 
@@ -453,9 +582,7 @@ html {
 /* -- Hero -- */
 
 .hero {
-  height: 600px;
-  background-color: #f06c64;
-  border-bottom: 6px solid #ea676b;
+  min-height: 600px;
 }
 
 /* -- Services -- */
