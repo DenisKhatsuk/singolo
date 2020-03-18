@@ -349,9 +349,19 @@
                 <input type="text" name="username" placeholder="Name (Required)" class="contact-form__input" required>
                 <input type="email" name="email" placeholder="Email (Required)" class="contact-form__input" required>
                 <input type="text" name="subject" placeholder="Subject" class="contact-form__input">
-                <textarea name="message" cols="30" rows="14" placeholder="Describe your project in detail..." class="contact-form__input contact-form__textarea"></textarea>
+                <textarea name="message" cols="30" rows="14" maxlength="1000" placeholder="Describe your project in detail..." class="contact-form__input contact-form__textarea"></textarea>
                 <button type="submit" class="contact-form__button">Send</button>
               </form>
+              <div class="modal-overlay modal-overlay_hidden">
+                <div class="submit-message">
+                  <div class="submit-message__text">
+                    <h3 class="submit-message__title"></h3>
+                    <p class="submit-message__subject"></p>
+                    <p class="submit-message__description"></p>
+                  </div>
+                  <button class="submit-message__button">Ok</button>
+                </div>
+              </div>
             </div>
             <div class="column column_30">
               <h3 class="column__title column__title_contact">Contact Information</h3>

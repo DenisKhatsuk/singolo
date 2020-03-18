@@ -10,6 +10,8 @@ window.onload = function() {
   interactiveHomePhoneButton('iphone-3');
 
   activateSlider('slider', 'slider__slide');
+
+  addFormHandler('contact-form', 'modal-overlay', 'modal-overlay_hidden');
 }
 
 // Common functions
@@ -131,4 +133,56 @@ function activateSlider(sliderClass, slideClass) {
       }
     }, false);
   }
+}
+
+// Modal window 
+
+function showModal(modalOverlayClass, modalOverlayHiddenClass) {
+  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
+  overlayWrapper.classList.remove(modalOverlayHiddenClass);
+}
+
+function hideModal(modalOverlayClass, modalOverlayHiddenClass) {
+  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
+  overlayWrapper.classList.add(modalOverlayHiddenClass);
+}
+
+function getDataFromForm(formClass) {
+  let form = document.getElementsByClassName(formClass)[0];
+  let subjectText = form.querySelector('[name="subject"]').value;
+  let descriptionText = form.querySelector('[name="message"]').value;
+  let data = {
+    subject: subjectText,
+    description: descriptionText,
+  };
+  return data;
+}
+
+function showFormDataInModal(modalOverlayClass) {
+  let data = getDataFromForm('contact-form');
+  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
+  let title = 'The letter was sent';
+  let subject = data.subject != '' ? data.subject : 'Without subject';
+  let description = data.description != '' ? data.description : 'Without description';
+  let titleEl = overlayWrapper.getElementsByClassName('submit-message__title')[0];
+  let subjectEl = overlayWrapper.getElementsByClassName('submit-message__subject')[0];
+  let descriptionEl = overlayWrapper.getElementsByClassName('submit-message__description')[0];
+  titleEl.innerText = title;
+  subjectEl.innerText = subject;
+  descriptionEl.innerText = description;
+}
+
+function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
+  let form = document.getElementsByClassName(formClass)[0];
+  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
+  let buttonSubmit = form.getElementsByTagName('button')[0];
+  let buttonModal = overlayWrapper.getElementsByTagName('button')[0];
+  buttonSubmit.addEventListener('click', function(e){
+    e.preventDefault();
+    showFormDataInModal(modalOverlayClass);
+    showModal(modalOverlayClass, modalOverlayHiddenClass);
+  }, false);
+  buttonModal.addEventListener('click', function(e){
+    hideModal(modalOverlayClass, modalOverlayHiddenClass);
+  }, false);
 }
