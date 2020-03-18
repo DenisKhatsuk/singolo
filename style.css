@@ -641,8 +641,8 @@ html {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  /* max-height: 621px;
-  overflow: hidden; */
+  max-height: 621px;
+  overflow: hidden;
 }
 
 .portfolio__item {
@@ -660,10 +660,6 @@ html {
 }
 
 .portfolio__item_hidden {
-  display: none;
-}
-
-.portfolio__item:not(.portfolio__item_hidden):nth-of-type(n+13) {
   display: none;
 }
 
