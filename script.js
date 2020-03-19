@@ -1,16 +1,16 @@
 window.onload = function() {
-  addSelectedStateToItemOnClick('tags', 'tag__link', 'tag_active');
-  addSelectedStateToItemOnClick('portfolio__body', 'portfolio__item', 'portfolio__item_active');
+  addSelectedStateToItemOnClick('.tags', '.tag__link', '.tag_active');
+  addSelectedStateToItemOnClick('.portfolio__body', '.portfolio__item', '.portfolio__item_active');
 
   addPortfolioTagsHandler();
 
-  interactiveHomePhoneButton('iphone-1');
-  interactiveHomePhoneButton('iphone-2');
-  interactiveHomePhoneButton('iphone-3');
+  interactiveHomePhoneButton('#iphone-1');
+  interactiveHomePhoneButton('#iphone-2');
+  interactiveHomePhoneButton('#iphone-3');
 
-  activateSlider('slider', 'slider__slide');
+  activateSlider('.slider', '.slider__slide');
 
-  addFormHandler('contact-form', 'modal-overlay', 'modal-overlay_hidden');
+  addFormHandler('.contact-form', '.modal-overlay', '.modal-overlay_hidden');
 
   pageScrollHandler();
 }
@@ -18,14 +18,18 @@ window.onload = function() {
 // Common functions
 
 function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
+  
+  let parent = document.querySelector(parentClass);
+  let items = parent.querySelectorAll(itemClass);
 
-  let parent = document.getElementsByClassName(parentClass)[0];
-  let items = parent.getElementsByClassName(itemClass);
+  parentClass = parentClass.substring(1);
+  itemClass = itemClass.substring(1);
+  activeClass = activeClass.substring(1);
 
   parent.addEventListener('click', function(event){
-    for (let i = 0; i < items.length; i++) {
-      items[i].classList.remove(activeClass);
-    }
+    items.forEach(function(el) {
+      el.classList.remove(activeClass);
+    })
     if (event.target.classList.contains(itemClass)) {
       event.target.classList.add(activeClass);
     } else {
@@ -72,17 +76,17 @@ function addPortfolioTagsHandler() {
 // Slider related functions
 
 function interactiveHomePhoneButton(parentId) {
-  let parent = document.getElementById(parentId);
-  let homeButton = parent.getElementsByClassName('iphone-home-img')[0];
-  let screenImage = parent.getElementsByClassName('iphone__background')[0];
+  let parent = document.querySelector(parentId);
+  let homeButton = parent.querySelector('.iphone-home-img');
+  let screenImage = parent.querySelector('.iphone__background');
   homeButton.addEventListener('click',function(){
     screenImage.classList.toggle('iphone__background_hidden');
   }, false);
 }
 
 function activateSlider(sliderClass, slideClass) {
-  let slider = document.getElementsByClassName(sliderClass)[0];
-  let slides = slider.getElementsByClassName(slideClass);
+  let slider = document.querySelector(sliderClass);
+  let slides = slider.querySelectorAll(slideClass);
   let currentSlide = 0;
   let isEnabled = true;
   arrowClickHandler();
@@ -121,8 +125,8 @@ function activateSlider(sliderClass, slideClass) {
   }
 
   function arrowClickHandler() {
-    let arrowNext = slider.getElementsByClassName('slider_arrow-next')[0];
-    let arrowPrev = slider.getElementsByClassName('slider_arrow-prev')[0];
+    let arrowNext = slider.querySelector('.slider_arrow-next');
+    let arrowPrev = slider.querySelector('.slider_arrow-prev');
     arrowNext.addEventListener('click', function(){
       if (isEnabled) {
         nextSlide(currentSlide);
@@ -138,18 +142,15 @@ function activateSlider(sliderClass, slideClass) {
 
 // Modal window 
 
-function showModal(modalOverlayClass, modalOverlayHiddenClass) {
-  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
-  overlayWrapper.classList.remove(modalOverlayHiddenClass);
+function showModal(overlayWrapper, modalOverlayHiddenClass) {
+  overlayWrapper.classList.remove(modalOverlayHiddenClass.substring(1));
 }
 
-function hideModal(modalOverlayClass, modalOverlayHiddenClass) {
-  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
-  overlayWrapper.classList.add(modalOverlayHiddenClass);
+function hideModal(overlayWrapper, modalOverlayHiddenClass) {
+  overlayWrapper.classList.add(modalOverlayHiddenClass.substring(1));
 }
 
-function getDataFromForm(formClass) {
-  let form = document.getElementsByClassName(formClass)[0];
+function getDataFromForm(form) {
   let subjectText = form.querySelector('[name="subject"]').value.toString();
   let descriptionText = form.querySelector('[name="message"]').value.toString();
   let data = {
@@ -157,57 +158,67 @@ function getDataFromForm(formClass) {
     description: descriptionText,
   };
   return data;
+
 }
 
-function showFormDataInModal(modalOverlayClass) {
-  let data = getDataFromForm('contact-form');
-  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
+function showFormDataInModal(overlayWrapper, form) {
+  let data = getDataFromForm(form);
   let title = 'The letter was sent';
   let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
   let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
-  let titleEl = overlayWrapper.getElementsByClassName('submit-message__title')[0];
-  let subjectEl = overlayWrapper.getElementsByClassName('submit-message__subject')[0];
-  let descriptionEl = overlayWrapper.getElementsByClassName('submit-message__description')[0];
+  let titleEl = overlayWrapper.querySelector('.submit-message__title');
+  let subjectEl = overlayWrapper.querySelector('.submit-message__subject');
+  let descriptionEl = overlayWrapper.querySelector('.submit-message__description');
   titleEl.innerText = title;
   subjectEl.innerText = subject;
   descriptionEl.innerText = description;
+
 }
 
 function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
-  let form = document.getElementsByClassName(formClass)[0];
-  let overlayWrapper = document.getElementsByClassName(modalOverlayClass)[0];
-  let buttonSubmit = form.getElementsByTagName('button')[0];
-  let buttonModal = overlayWrapper.getElementsByTagName('button')[0];
+  let form = document.querySelector(formClass);
+  let overlayWrapper = document.querySelector(modalOverlayClass);
+  let buttonSubmit = form.querySelector('button');
+  let buttonModal = overlayWrapper.querySelector('button');
+
   buttonSubmit.addEventListener('click', function(e){
     e.preventDefault();
-    showFormDataInModal(modalOverlayClass);
-    showModal(modalOverlayClass, modalOverlayHiddenClass);
+    showFormDataInModal(overlayWrapper, form);
+    showModal(overlayWrapper, modalOverlayHiddenClass);
   }, false);
+
   buttonModal.addEventListener('click', function(e){
-    hideModal(modalOverlayClass, modalOverlayHiddenClass);
+    hideModal(overlayWrapper, modalOverlayHiddenClass);
   }, false);
+
 }
 
 // Page scroll handler for main menu 
 
 function pageScrollHandler() {
+
   document.addEventListener('scroll', onScroll, false);
+
   function onScroll() {
     let currentScrollPosition = window.scrollY;
     let sections = document.querySelectorAll('main > section');
-    
     let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
     
     sections.forEach(function(section) {
+      
       if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
-        
         mainMenuItems.forEach(function(item) {
           item.classList.remove('navigation__link_active');
+          
           if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
             item.classList.add('navigation__link_active');  
           };
+
         });
       }
+
     });
+  
   }
+
 }
