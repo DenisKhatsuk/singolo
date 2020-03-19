@@ -1,5 +1,4 @@
 window.onload = function() {
-  addSelectedStateToItemOnClick('navigation', 'navigation__link', 'navigation__link_active');
   addSelectedStateToItemOnClick('tags', 'tag__link', 'tag_active');
   addSelectedStateToItemOnClick('portfolio__body', 'portfolio__item', 'portfolio__item_active');
 
@@ -12,6 +11,8 @@ window.onload = function() {
   activateSlider('slider', 'slider__slide');
 
   addFormHandler('contact-form', 'modal-overlay', 'modal-overlay_hidden');
+
+  pageScrollHandler();
 }
 
 // Common functions
@@ -185,4 +186,28 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   buttonModal.addEventListener('click', function(e){
     hideModal(modalOverlayClass, modalOverlayHiddenClass);
   }, false);
+}
+
+// Page scroll handler for main menu 
+
+function pageScrollHandler() {
+  document.addEventListener('scroll', onScroll, false);
+  function onScroll() {
+    let currentScrollPosition = window.scrollY;
+    let sections = document.querySelectorAll('main > section');
+    
+    let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
+    
+    sections.forEach(function(section) {
+      if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
+        
+        mainMenuItems.forEach(function(item) {
+          item.classList.remove('navigation__link_active');
+          if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
+            item.classList.add('navigation__link_active');  
+          };
+        });
+      }
+    });
+  }
 }
