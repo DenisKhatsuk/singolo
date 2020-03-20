@@ -164,7 +164,7 @@ function getDataFromForm(form) {
 function showFormDataInModal(overlayWrapper, form) {
   let data = getDataFromForm(form);
   let title = 'The letter was sent';
-  let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
+  let subject = data.subject != '' ? 'Subject:' + data.subject : 'Without subject';
   let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
   let titleEl = overlayWrapper.querySelector('.submit-message__title');
   let subjectEl = overlayWrapper.querySelector('.submit-message__subject');
