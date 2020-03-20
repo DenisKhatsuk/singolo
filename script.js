@@ -2,7 +2,7 @@ window.onload = function() {
   addSelectedStateToItemOnClick('.tags', '.tag__link', '.tag_active');
   addSelectedStateToItemOnClick('.portfolio__body', '.portfolio__item', '.portfolio__item_active');
 
-  //addPortfolioTagsHandler();
+  portfolioShuffle('.portfolio__body', '.portfolio__item');
 
   interactiveHomePhoneButton('#iphone-1');
   interactiveHomePhoneButton('#iphone-2');
@@ -41,40 +41,41 @@ function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
 
 // Portfolio related functions
 
-// function hideAllItemsWithClass(parentClass, itemClass, hiddenClass) {
-//   let parent = document.getElementsByClassName(parentClass)[0];
-//   let items = parent.getElementsByClassName(itemClass);
-//   for (let i = 0; i < items.length; i++) {
-//     items[i].classList.add(hiddenClass);
-//   }
-// }
+function getPortfolioItems(portfolio, itemClass) {
+  let items = portfolio.querySelectorAll(itemClass);
+  let itemsArray = [];
+  items.forEach(function(el) {
+    itemsArray.push(el);
+  })
+  return itemsArray;
+}
 
-// function showItemsWithActiveTagName(event, parentClass, itemClass, hiddenClass) {
-//   let parent = document.getElementsByClassName(parentClass)[0];
-//   let items = parent.getElementsByClassName(itemClass);
-//   let clickedTag = event.target.innerText;
-//   let itemsSelected = parent.querySelectorAll(`[data-tags*='${clickedTag}']`);
-//   if (clickedTag == 'All' || clickedTag == '') {
-//     for (let i = 0; i < items.length; i++) {
-//       items[i].classList.remove(hiddenClass);
-//     }
-//   } else {
-//     for (let i = 0; i < itemsSelected.length; i++) {
-//       itemsSelected[i].classList.remove(hiddenClass);
-//     }
-//   }
-// }
+function removeAllItemsFromPortfolio(portfolio) {
+  portfolio.innerHTML = '';  
+};
 
-// function addPortfolioTagsHandler() {
-//   let portfolioTags = document.getElementsByClassName('tags')[0];
-//   portfolioTags.addEventListener('click', function(event){
-//     hideAllItemsWithClass('portfolio__body', 'portfolio__item', 'portfolio__item_hidden');
-//     showItemsWithActiveTagName(event, 'portfolio__body', 'portfolio__item', 'portfolio__item_hidden');  
-//   }, false);
-// }
+function randomIndex(itemsLength) {
+  return Math.floor(Math.random() * itemsLength);
+}
 
-function getPortfolioItems(portfolioClass, itemClass) {
+function addPortfolioItemsInRandomOrder(portfolio, items) {
+  let itemsLength = items.length;
+  while (itemsLength > 0) {
+    let index = randomIndex(itemsLength);
+    portfolio.appendChild(items[index]);
+    items.splice(index, 1);
+    itemsLength--;
+  }
+}
 
+function portfolioShuffle(portfolioClass, itemClass) {
+  let portfolio = document.querySelector(portfolioClass);
+  let portfolioTags = document.querySelector('.portfolio__tags .tags');
+  portfolioTags.addEventListener('click', function(){
+    let items = getPortfolioItems(portfolio, itemClass);
+    removeAllItemsFromPortfolio(portfolio);
+    addPortfolioItemsInRandomOrder(portfolio, items);
+  }, false);  
 }
 
 // Slider related functions
@@ -168,7 +169,7 @@ function getDataFromForm(form) {
 function showFormDataInModal(overlayWrapper, form) {
   let data = getDataFromForm(form);
   let title = 'The letter was sent';
-  let subject = data.subject != '' ? 'Subject:' + data.subject : 'Without subject';
+  let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
   let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
   let titleEl = overlayWrapper.querySelector('.submit-message__title');
   let subjectEl = overlayWrapper.querySelector('.submit-message__subject');

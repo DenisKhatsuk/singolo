@@ -247,18 +247,11 @@ html {
   left: -125px;
 }
 
-/* .slider__nav {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-} */
-
 .slider__arrow {
   position: absolute;
   top: 49%;
   width: 10%;
-  height: 20%;
+  height: 40%;
   transform: translateY(-50%);
   cursor: pointer;
 }
