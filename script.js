@@ -2,7 +2,7 @@ window.onload = function() {
   addSelectedStateToItemOnClick('.tags', '.tag__link', '.tag_active');
   addSelectedStateToItemOnClick('.portfolio__body', '.portfolio__item', '.portfolio__item_active');
 
-  addPortfolioTagsHandler();
+  //addPortfolioTagsHandler();
 
   interactiveHomePhoneButton('#iphone-1');
   interactiveHomePhoneButton('#iphone-2');
@@ -41,36 +41,40 @@ function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
 
 // Portfolio related functions
 
-function hideAllItemsWithClass(parentClass, itemClass, hiddenClass) {
-  let parent = document.getElementsByClassName(parentClass)[0];
-  let items = parent.getElementsByClassName(itemClass);
-  for (let i = 0; i < items.length; i++) {
-    items[i].classList.add(hiddenClass);
-  }
-}
+// function hideAllItemsWithClass(parentClass, itemClass, hiddenClass) {
+//   let parent = document.getElementsByClassName(parentClass)[0];
+//   let items = parent.getElementsByClassName(itemClass);
+//   for (let i = 0; i < items.length; i++) {
+//     items[i].classList.add(hiddenClass);
+//   }
+// }
 
-function showItemsWithActiveTagName(event, parentClass, itemClass, hiddenClass) {
-  let parent = document.getElementsByClassName(parentClass)[0];
-  let items = parent.getElementsByClassName(itemClass);
-  let clickedTag = event.target.innerText;
-  let itemsSelected = parent.querySelectorAll(`[data-tags*='${clickedTag}']`);
-  if (clickedTag == 'All' || clickedTag == '') {
-    for (let i = 0; i < items.length; i++) {
-      items[i].classList.remove(hiddenClass);
-    }
-  } else {
-    for (let i = 0; i < itemsSelected.length; i++) {
-      itemsSelected[i].classList.remove(hiddenClass);
-    }
-  }
-}
+// function showItemsWithActiveTagName(event, parentClass, itemClass, hiddenClass) {
+//   let parent = document.getElementsByClassName(parentClass)[0];
+//   let items = parent.getElementsByClassName(itemClass);
+//   let clickedTag = event.target.innerText;
+//   let itemsSelected = parent.querySelectorAll(`[data-tags*='${clickedTag}']`);
+//   if (clickedTag == 'All' || clickedTag == '') {
+//     for (let i = 0; i < items.length; i++) {
+//       items[i].classList.remove(hiddenClass);
+//     }
+//   } else {
+//     for (let i = 0; i < itemsSelected.length; i++) {
+//       itemsSelected[i].classList.remove(hiddenClass);
+//     }
+//   }
+// }
 
-function addPortfolioTagsHandler() {
-  let portfolioTags = document.getElementsByClassName('tags')[0];
-  portfolioTags.addEventListener('click', function(event){
-    hideAllItemsWithClass('portfolio__body', 'portfolio__item', 'portfolio__item_hidden');
-    showItemsWithActiveTagName(event, 'portfolio__body', 'portfolio__item', 'portfolio__item_hidden');  
-  }, false);
+// function addPortfolioTagsHandler() {
+//   let portfolioTags = document.getElementsByClassName('tags')[0];
+//   portfolioTags.addEventListener('click', function(event){
+//     hideAllItemsWithClass('portfolio__body', 'portfolio__item', 'portfolio__item_hidden');
+//     showItemsWithActiveTagName(event, 'portfolio__body', 'portfolio__item', 'portfolio__item_hidden');  
+//   }, false);
+// }
+
+function getPortfolioItems(portfolioClass, itemClass) {
+
 }
 
 // Slider related functions
@@ -125,8 +129,8 @@ function activateSlider(sliderClass, slideClass) {
   }
 
   function arrowClickHandler() {
-    let arrowNext = slider.querySelector('.slider_arrow-next');
-    let arrowPrev = slider.querySelector('.slider_arrow-prev');
+    let arrowNext = slider.querySelector('.slider__nav_next');
+    let arrowPrev = slider.querySelector('.slider__nav_prev');
     arrowNext.addEventListener('click', function(){
       if (isEnabled) {
         nextSlide(currentSlide);

@@ -256,29 +256,34 @@ html {
 
 .slider__arrow {
   position: absolute;
-  top: 50%;
+  top: 49%;
   width: 10%;
   height: 20%;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
-.slider_arrow-prev {
-  left: 42px;
+.slider__nav_prev {
+  left: 0;
 }
 
-.slider_arrow-next {
-  right: 40px;
+.slider__nav_next {
+  right: 0;
 } 
 
-.slider__arrow img {
+.slider__arrow_prev,
+.slider__arrow_next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.slider_arrow-next img {
-  right: 0;
+.slider__arrow_prev {
+  left: 42px;
+}
+
+.slider__arrow_next {
+  right: 40px;
 }
 
 /* -- Slide Animations -- */
@@ -654,7 +659,7 @@ html {
 }
 
 .portfolio__image {
-  line-height: 0;
+  width: 100%;
 }
 
 .portfolio__item_active {
