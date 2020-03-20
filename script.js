@@ -18,7 +18,6 @@ window.onload = function() {
 // Common functions
 
 function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
-  
   let parent = document.querySelector(parentClass);
   let items = parent.querySelectorAll(itemClass);
 
@@ -36,41 +35,40 @@ function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
       event.target.closest(`[class^=${itemClass}`).classList.add(activeClass);
     }
   }, false);
-
 }
 
 // Portfolio related functions
-
-function getPortfolioItems(portfolio, itemClass) {
-  let items = portfolio.querySelectorAll(itemClass);
-  let itemsArray = [];
-  items.forEach(function(el) {
-    itemsArray.push(el);
-  })
-  return itemsArray;
-}
-
-function removeAllItemsFromPortfolio(portfolio) {
-  portfolio.innerHTML = '';  
-};
-
-function randomIndex(itemsLength) {
-  return Math.floor(Math.random() * itemsLength);
-}
-
-function addPortfolioItemsInRandomOrder(portfolio, items) {
-  let itemsLength = items.length;
-  while (itemsLength > 0) {
-    let index = randomIndex(itemsLength);
-    portfolio.appendChild(items[index]);
-    items.splice(index, 1);
-    itemsLength--;
-  }
-}
-
 function portfolioShuffle(portfolioClass, itemClass) {
   let portfolio = document.querySelector(portfolioClass);
   let portfolioTags = document.querySelector('.portfolio__tags .tags');
+  
+  function getPortfolioItems(portfolio, itemClass) {
+    let items = portfolio.querySelectorAll(itemClass);
+    let itemsArray = [];
+    items.forEach(function(el) {
+      itemsArray.push(el);
+    })
+    return itemsArray;
+  }
+
+  function removeAllItemsFromPortfolio(portfolio) {
+    portfolio.innerHTML = '';  
+  };
+
+  function randomIndex(itemsLength) {
+    return Math.floor(Math.random() * itemsLength);
+  }
+
+  function addPortfolioItemsInRandomOrder(portfolio, items) {
+    let itemsLength = items.length;
+    while (itemsLength > 0) {
+      let index = randomIndex(itemsLength);
+      portfolio.appendChild(items[index]);
+      items.splice(index, 1);
+      itemsLength--;
+    }
+  }
+
   portfolioTags.addEventListener('click', function(){
     let items = getPortfolioItems(portfolio, itemClass);
     removeAllItemsFromPortfolio(portfolio);
@@ -94,7 +92,6 @@ function activateSlider(sliderClass, slideClass) {
   let slides = slider.querySelectorAll(slideClass);
   let currentSlide = 0;
   let isEnabled = true;
-  arrowClickHandler();
 
   function changeCurrentSlide(n) {
     currentSlide = (n + slides.length) % slides.length;
@@ -143,72 +140,72 @@ function activateSlider(sliderClass, slideClass) {
       }
     }, false);
   }
+
+  arrowClickHandler();
 }
 
 // Modal window 
-
-function showModal(overlayWrapper, modalOverlayHiddenClass) {
-  overlayWrapper.classList.remove(modalOverlayHiddenClass.substring(1));
-}
-
-function hideModal(overlayWrapper, modalOverlayHiddenClass) {
-  overlayWrapper.classList.add(modalOverlayHiddenClass.substring(1));
-}
-
-function getDataFromForm(form) {
-  let subjectText = form.querySelector('[name="subject"]').value.toString();
-  let descriptionText = form.querySelector('[name="message"]').value.toString();
-  let data = {
-    subject: subjectText,
-    description: descriptionText,
-  };
-  return data;
-
-}
-
-function showFormDataInModal(overlayWrapper, form) {
-  let data = getDataFromForm(form);
-  let title = 'The letter was sent';
-  let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
-  let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
-  let titleEl = overlayWrapper.querySelector('.submit-message__title');
-  let subjectEl = overlayWrapper.querySelector('.submit-message__subject');
-  let descriptionEl = overlayWrapper.querySelector('.submit-message__description');
-  titleEl.innerText = title;
-  subjectEl.innerText = subject;
-  descriptionEl.innerText = description;
-
-}
-
-function checkRequiredFormFields(form) {
-  let requiredFields = form.querySelectorAll('[required]');
-  let fieldsAreNotEmpty = true;
-  requiredFields.forEach(function(field) {
-    if (field.value == '') {
-      fieldsAreNotEmpty = false;
-    } 
-  });
-  return fieldsAreNotEmpty;
-}
-
-function validateEmailFormField(form) {
-  let emailField = form.querySelector('[name = email]');
-  isValid = emailField.value.includes('@') ? true : false;
-  return isValid;
-}
-
-function resetFormFields(form) {
-  let formField = form.querySelectorAll('input, textarea');
-  formField.forEach(function(el) {
-    el.value = '';
-  });  
-}
 
 function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   let form = document.querySelector(formClass);
   let overlayWrapper = document.querySelector(modalOverlayClass);
   let buttonSubmit = form.querySelector('button');
   let buttonModal = overlayWrapper.querySelector('button');
+
+  function showModal(overlayWrapper, modalOverlayHiddenClass) {
+    overlayWrapper.classList.remove(modalOverlayHiddenClass.substring(1));
+  }
+
+  function hideModal(overlayWrapper, modalOverlayHiddenClass) {
+    overlayWrapper.classList.add(modalOverlayHiddenClass.substring(1));
+  }
+
+  function getDataFromForm(form) {
+    let subjectText = form.querySelector('[name="subject"]').value.toString();
+    let descriptionText = form.querySelector('[name="message"]').value.toString();
+    let data = {
+      subject: subjectText,
+      description: descriptionText,
+    };
+    return data;
+  }
+
+  function showFormDataInModal(overlayWrapper, form) {
+    let data = getDataFromForm(form);
+    let title = 'The letter was sent';
+    let subject = data.subject != '' ? 'Subject: ' + data.subject : 'Without subject';
+    let description = data.description != '' ? 'Description: ' + data.description : 'Without description';
+    let titleEl = overlayWrapper.querySelector('.submit-message__title');
+    let subjectEl = overlayWrapper.querySelector('.submit-message__subject');
+    let descriptionEl = overlayWrapper.querySelector('.submit-message__description');
+    titleEl.innerText = title;
+    subjectEl.innerText = subject;
+    descriptionEl.innerText = description;
+  }
+
+  function checkRequiredFormFields(form) {
+    let requiredFields = form.querySelectorAll('[required]');
+    let fieldsAreNotEmpty = true;
+    requiredFields.forEach(function(field) {
+      if (field.value == '') {
+        fieldsAreNotEmpty = false;
+      } 
+    });
+    return fieldsAreNotEmpty;
+  }
+
+  function validateEmailFormField(form) {
+    let emailField = form.querySelector('[name = email]');
+    isValid = emailField.value.includes('@') ? true : false;
+    return isValid;
+  }
+
+  function resetFormFields(form) {
+    let formField = form.querySelectorAll('input, textarea');
+    formField.forEach(function(el) {
+      el.value = '';
+    });  
+  }
 
   buttonSubmit.addEventListener('click', function(e){
     if (checkRequiredFormFields(form) && validateEmailFormField(form)) {
@@ -217,40 +214,29 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
       showModal(overlayWrapper, modalOverlayHiddenClass);
     }
   }, false);
-
   buttonModal.addEventListener('click', function(e){
     resetFormFields(form);
     hideModal(overlayWrapper, modalOverlayHiddenClass);
   }, false);
-
 }
 
 // Page scroll handler for main menu 
 
 function pageScrollHandler() {
-
   document.addEventListener('scroll', onScroll, false);
-
   function onScroll() {
     let currentScrollPosition = window.scrollY;
     let sections = document.querySelectorAll('main > section');
     let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
-    
     sections.forEach(function(section) {
-      
       if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
         mainMenuItems.forEach(function(item) {
           item.classList.remove('navigation__link_active');
-          
           if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
             item.classList.add('navigation__link_active');  
           };
-
         });
       }
-
     });
-  
   }
-
 }
