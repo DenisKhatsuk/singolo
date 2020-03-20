@@ -175,6 +175,23 @@ function showFormDataInModal(overlayWrapper, form) {
 
 }
 
+function checkRequiredFormFields(form) {
+  let requiredFields = form.querySelectorAll('[required]');
+  let fieldsAreNotEmpty = true;
+  requiredFields.forEach(function(field) {
+    if (field.value == '') {
+      fieldsAreNotEmpty = false;
+    } 
+  });
+  return fieldsAreNotEmpty;
+}
+
+function validateEmailFormField(form) {
+  let emailField = form.querySelector('[name = email]');
+  isValid = emailField.value.includes('@') ? true : false;
+  return isValid;
+}
+
 function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   let form = document.querySelector(formClass);
   let overlayWrapper = document.querySelector(modalOverlayClass);
@@ -182,9 +199,11 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   let buttonModal = overlayWrapper.querySelector('button');
 
   buttonSubmit.addEventListener('click', function(e){
-    e.preventDefault();
-    showFormDataInModal(overlayWrapper, form);
-    showModal(overlayWrapper, modalOverlayHiddenClass);
+    if (checkRequiredFormFields(form) && validateEmailFormField(form)) {
+      e.preventDefault();
+      showFormDataInModal(overlayWrapper, form);
+      showModal(overlayWrapper, modalOverlayHiddenClass);
+    }
   }, false);
 
   buttonModal.addEventListener('click', function(e){
