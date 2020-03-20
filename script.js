@@ -192,6 +192,13 @@ function validateEmailFormField(form) {
   return isValid;
 }
 
+function resetFormFields(form) {
+  let formField = form.querySelectorAll('input, textarea');
+  formField.forEach(function(el) {
+    el.value = '';
+  });  
+}
+
 function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   let form = document.querySelector(formClass);
   let overlayWrapper = document.querySelector(modalOverlayClass);
@@ -207,6 +214,7 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   }, false);
 
   buttonModal.addEventListener('click', function(e){
+    resetFormFields(form);
     hideModal(overlayWrapper, modalOverlayHiddenClass);
   }, false);
 
