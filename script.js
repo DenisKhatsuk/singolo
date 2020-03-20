@@ -31,49 +31,31 @@ function addSelectedStateToItemOnClick(parentClass, itemClass, activeClass) {
     })
     if (event.target.classList.contains(itemClass)) {
       event.target.classList.add(activeClass);
-    } else {
+    } else if (event.target.closest(`[class^=${itemClass}`)) {
       event.target.closest(`[class^=${itemClass}`).classList.add(activeClass);
     }
   }, false);
 }
 
-// Portfolio related functions
-function portfolioShuffle(portfolioClass, itemClass) {
-  let portfolio = document.querySelector(portfolioClass);
-  let portfolioTags = document.querySelector('.portfolio__tags .tags');
-  
-  function getPortfolioItems(portfolio, itemClass) {
-    let items = portfolio.querySelectorAll(itemClass);
-    let itemsArray = [];
-    items.forEach(function(el) {
-      itemsArray.push(el);
-    })
-    return itemsArray;
+// Page scroll handler for main menu 
+
+function pageScrollHandler() {
+  document.addEventListener('scroll', onScroll, false);
+  function onScroll() {
+    let currentScrollPosition = window.scrollY;
+    let sections = document.querySelectorAll('main > section');
+    let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
+    sections.forEach(function(section) {
+      if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
+        mainMenuItems.forEach(function(item) {
+          item.classList.remove('navigation__link_active');
+          if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
+            item.classList.add('navigation__link_active');  
+          };
+        });
+      }
+    });
   }
-
-  function removeAllItemsFromPortfolio(portfolio) {
-    portfolio.innerHTML = '';  
-  };
-
-  function randomIndex(itemsLength) {
-    return Math.floor(Math.random() * itemsLength);
-  }
-
-  function addPortfolioItemsInRandomOrder(portfolio, items) {
-    let itemsLength = items.length;
-    while (itemsLength > 0) {
-      let index = randomIndex(itemsLength);
-      portfolio.appendChild(items[index]);
-      items.splice(index, 1);
-      itemsLength--;
-    }
-  }
-
-  portfolioTags.addEventListener('click', function(){
-    let items = getPortfolioItems(portfolio, itemClass);
-    removeAllItemsFromPortfolio(portfolio);
-    addPortfolioItemsInRandomOrder(portfolio, items);
-  }, false);  
 }
 
 // Slider related functions
@@ -142,6 +124,45 @@ function activateSlider(sliderClass, slideClass) {
   }
 
   arrowClickHandler();
+}
+
+// Portfolio related functions
+function portfolioShuffle(portfolioClass, itemClass) {
+  let portfolio = document.querySelector(portfolioClass);
+  let portfolioTags = document.querySelector('.portfolio__tags .tags');
+  
+  function getPortfolioItems(portfolio, itemClass) {
+    let items = portfolio.querySelectorAll(itemClass);
+    let itemsArray = [];
+    items.forEach(function(el) {
+      itemsArray.push(el);
+    })
+    return itemsArray;
+  }
+
+  function removeAllItemsFromPortfolio(portfolio) {
+    portfolio.innerHTML = '';  
+  };
+
+  function randomIndex(itemsLength) {
+    return Math.floor(Math.random() * itemsLength);
+  }
+
+  function addPortfolioItemsInRandomOrder(portfolio, items) {
+    let itemsLength = items.length;
+    while (itemsLength > 0) {
+      let index = randomIndex(itemsLength);
+      portfolio.appendChild(items[index]);
+      items.splice(index, 1);
+      itemsLength--;
+    }
+  }
+
+  portfolioTags.addEventListener('click', function(){
+    let items = getPortfolioItems(portfolio, itemClass);
+    removeAllItemsFromPortfolio(portfolio);
+    addPortfolioItemsInRandomOrder(portfolio, items);
+  }, false);  
 }
 
 // Modal window 
@@ -218,25 +239,4 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
     resetFormFields(form);
     hideModal(overlayWrapper, modalOverlayHiddenClass);
   }, false);
-}
-
-// Page scroll handler for main menu 
-
-function pageScrollHandler() {
-  document.addEventListener('scroll', onScroll, false);
-  function onScroll() {
-    let currentScrollPosition = window.scrollY;
-    let sections = document.querySelectorAll('main > section');
-    let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
-    sections.forEach(function(section) {
-      if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
-        mainMenuItems.forEach(function(item) {
-          item.classList.remove('navigation__link_active');
-          if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
-            item.classList.add('navigation__link_active');  
-          };
-        });
-      }
-    });
-  }
 }
