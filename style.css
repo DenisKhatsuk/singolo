@@ -19,6 +19,12 @@ html {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    width: 768px;
+  } 
+}
+
 /* -- Wrapper Header -- */
 .wrapper-header {
   position: sticky;
@@ -34,11 +40,18 @@ html {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .wrapper-inner {
+    width: 688px;
+  } 
+}
+
 /* -- Row -- */
 
 .row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* -- Column -- */
@@ -57,6 +70,12 @@ html {
 
 .column_70 {
   width: 65.957446%;
+}
+
+@media (max-width: 768px) {
+  .column_30 {
+    width: 43.604651%;
+  }
 }
 
 /* -- Top spacer -- */
@@ -363,6 +382,17 @@ html {
 
 /* -- Service -- */
 
+.service-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 19px 0;
+}
+
+.service {
+  padding-bottom: 19px;
+}
+
 .service__icon {
   float: left;
   padding-top: 3px;
@@ -586,7 +616,7 @@ html {
 /* -- Services -- */
 
 .services {
-  padding: 40px 0 50px;
+  padding: 40px 0 12px;
   font-family: "Lato", "Helvetica", sans-serif;
   color: #666d89;
   background-color: #f2f2f2;
@@ -649,6 +679,10 @@ html {
   max-height: 187px;
   margin-top: 20px;
   overflow: hidden;
+}
+
+.portfolio__item:not(:nth-of-type(4n+4)) {
+  margin-right: 20px;
 }
 
 .portfolio__image {
