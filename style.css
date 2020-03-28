@@ -21,7 +21,7 @@ html {
 
 @media (max-width: 768px) {
   .wrapper {
-    width: 768px;
+    width: 100%;
   } 
 }
 
@@ -43,6 +43,12 @@ html {
 @media (max-width: 768px) {
   .wrapper-inner {
     width: 688px;
+  } 
+}
+
+@media (max-width: 375px) {
+  .wrapper-inner {
+    width: 314px;
   } 
 }
 
@@ -75,6 +81,12 @@ html {
 @media (max-width: 768px) {
   .column_30 {
     width: 43.604651%;
+  }
+}
+
+@media (max-width: 375px) {
+  .column_30 {
+    width: 100%;
   }
 }
 
@@ -421,6 +433,12 @@ html {
   line-height: 21px;
   text-align: justify;
   overflow: hidden;
+}
+
+@media (max-width: 375px) {
+  .service__content {
+    width: 70.063694%;
+  } 
 }
 
 /*-- Tags --*/
