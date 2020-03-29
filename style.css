@@ -1354,6 +1354,24 @@ html {
     margin-bottom: 32px;
   }
 
+  .contact-section__column_70 {
+    flex: 1 0 100%;
+    margin-right: 0px;
+  }
+
+  .contact-section__column_70 {
+    flex: 1 0 100%;
+  }
+
+  .contact-form__button {
+    width: 100%;
+  }
+
+  .submit-message {
+    width: 100%;
+    top: 35%;
+  }
+
   .footer-info__column_50 {
     flex: 1 0 100%;
   }
@@ -1390,25 +1408,6 @@ html {
     width: 100%;
     padding: 0 30px;
   }
-
-  .contact-section__column_70 {
-    flex: 1 0 100%;
-    margin-right: 0px;
-  }
-
-  .contact-section__column_70 {
-    flex: 1 0 100%;
-  }
-
-  .contact-form__button {
-    width: 100%;
-  }
-
-  .submit-message {
-    width: 100%;
-    top: 35%;
-  }
-
 }
 
 @media (max-width: 374px) {
