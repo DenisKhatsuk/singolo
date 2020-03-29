@@ -28,6 +28,81 @@
     width: 50%;
   }
 
+  .slider__arrow {
+    top: 38%;
+  }
+
+  .slider__arrow_prev {
+    left: 30px;
+  }
+
+  .slider__arrow_next {
+    right: 27px;
+  }
+
+  .iphone__body,
+  .iphone__shadow {
+    transform: scale(0.754);
+  }
+
+  .iphone__shadow {
+    top: 2px;
+    left: -4px;
+  }
+
+  .iphone__background {
+    transform: scale(0.759);
+    top: 70px;
+  }
+
+  .hero {
+    min-height: 451px;
+  }
+
+  .slider__slide {
+    height: 451px;
+  }
+
+  .slider__iphone {
+    top: -36px;
+    left: 58px;
+  }
+
+  .slider__iphone_horizontal {
+    top: 93px;
+    left: 724px;
+  }
+
+  .slider__iphone_horizontal .iphone__background {
+    transform: rotate(-90deg) scale(0.759);
+    top: 142px;  
+  }
+
+  .slider__iphone_horizontal .iphone__shadow {
+    top: -23px;
+    transform: rotateX(180deg) scale(0.755);
+  }
+
+  #iphone-3 {
+    top: -30px;
+    left: 126px;
+  }
+
+  #iphone-3 .iphone__background {
+    top: 78px;
+    left: 17px;
+  }
+  
+  #iphone-4 {
+    top: 95px;
+    left: -139px;
+  }
+
+  #iphone-5 {
+    top: 95px;
+    right: -134px;
+  }
+
 }
 
 @media (max-width: 375px) {
