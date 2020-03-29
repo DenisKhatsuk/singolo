@@ -23,6 +23,11 @@
     flex: 1 0 64%;
     margin-right: 29px;
   }
+
+  .contact-form__button {
+    width: 50%;
+  }
+
 }
 
 @media (max-width: 375px) {
@@ -66,6 +71,19 @@
 
   .contact-form__button {
     width: 100%;
+  }
+
+  .footer-info__column_50 {
+    flex: 1 0 100%;
+  }
+
+  .footer-info__column_50:first-child {
+    display: none;
+  }
+
+  .footer__social {
+    float: none;
+    text-align: center;
   }
 
 } 
