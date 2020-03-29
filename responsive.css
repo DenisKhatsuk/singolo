@@ -1,0 +1,89 @@
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .wrapper-inner {
+    width: 688px;
+  }  
+
+  .column_30 {
+    width: 43.604651%;
+  }
+
+  .service__column_30 {
+    flex: 1 0 43%;
+  }
+
+  .portfolio__column_25 {
+    flex: 1 0 23%;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .wrapper-inner {
+    width: 314px;
+  }
+
+  .service__column_30 {
+    flex: 0 0 95%;
+  }
+
+  .portfolio__column_25 {
+    flex: 1 0 46%;
+  }
+
+  .portfolio__item:nth-of-type(n+9) {
+    display: none;
+  }
+
+  .portfolio__item:not(:nth-of-type(2n+2)) {
+    margin-right: 20px;
+  }
+
+  .service__content {
+    width: 70.063694%;
+  } 
+
+  .team-member__column_30 {
+    flex: 1 0 100%;
+  }
+
+} 
+
+@media (min-width: 769px) {
+  .portfolio__item:not(:nth-of-type(4n+4)) {
+    margin-right: 20px;
+  }
+
+  .service__column_30:not(:nth-of-type(3n+3)) {
+    margin-right: 20px;
+  }
+
+  .team-member__column_30:not(:nth-of-type(3n+3)) {
+    margin-right: 20px;
+  }
+  
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .portfolio__item:not(:nth-of-type(3n+3)) {
+    margin-right: 20px;
+  }
+
+  .service__column_30:not(:nth-of-type(2n+2)) {
+    margin-right: 20px;
+  }
+
+  .team-member__column_30:not(:nth-of-type(3n+3)) {
+    margin-right: 14.6px;
+  }
+
+}
+
+@media (min-width: 376px) {
+  .portfolio__item:nth-of-type(n+13) {
+    display: none;
+  }
+}

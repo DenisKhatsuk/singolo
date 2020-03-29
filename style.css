@@ -19,12 +19,6 @@ html {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-    width: 100%;
-  } 
-}
-
 /* -- Wrapper Header -- */
 .wrapper-header {
   position: sticky;
@@ -40,18 +34,6 @@ html {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .wrapper-inner {
-    width: 688px;
-  } 
-}
-
-@media (max-width: 375px) {
-  .wrapper-inner {
-    width: 314px;
-  } 
-}
-
 /* -- Row -- */
 
 .row {
@@ -61,10 +43,6 @@ html {
 }
 
 /* -- Column -- */
-
-.column_25 {
-  flex: 1 0 23%;
-}
 
 .column_30 {
   width: 31.914893%;
@@ -76,18 +54,6 @@ html {
 
 .column_70 {
   width: 65.957446%;
-}
-
-@media (max-width: 768px) {
-  .column_30 {
-    width: 43.604651%;
-  }
-}
-
-@media (max-width: 375px) {
-  .column_30 {
-    width: 100%;
-  }
 }
 
 /* -- Top spacer -- */
@@ -435,10 +401,8 @@ html {
   overflow: hidden;
 }
 
-@media (max-width: 375px) {
-  .service__content {
-    width: 70.063694%;
-  } 
+.service__column_30 {
+  flex: 1 0 31%;
 }
 
 /*-- Tags --*/
@@ -483,6 +447,21 @@ html {
 }
 
 /*-- Team member --*/
+
+.team-member-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.team-member__column_30 {
+  flex: 1 0 31%;
+  margin-bottom: 34px;
+}
+
+.team-member__image {
+  width: 100%;
+}
 
 .team-member__name {
   margin: 13px 0 8px;
@@ -689,7 +668,6 @@ html {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  max-height: 621px;
   overflow: hidden;
 }
 
@@ -711,43 +689,14 @@ html {
   display: none;
 }
 
-@media (min-width: 769px) {
-  .portfolio__item:not(:nth-of-type(4n+4)) {
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .column_25 {
-    flex: 1 0 23%;
-  }
-  .portfolio__body {
-    max-height: 794px;
-  }
-}
-
-@media (min-width: 376px) and (max-width: 768px) {
-  .portfolio__item:not(:nth-of-type(3n+3)) {
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 375px) {
-  .column_25 {
-    flex: 1 0 46%;
-  }
-  .portfolio__body {
-    max-height: 595px;
-  }
-  .portfolio__item:not(:nth-of-type(2n+2)) {
-    margin-right: 20px;
-  }
+.portfolio__column_25 {
+  flex: 1 0 23%;
 }
 
 /*-- About Us --*/
 
 .about-us {
-  padding: 40px 0 64px;
+  padding: 40px 0 30px;
   font-family: "Lato", "Helvetica", sans-serif;
   color: #666d89;
   background-color: #f2f2f2;
