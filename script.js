@@ -13,6 +13,7 @@ window.onload = function() {
   addFormHandler('.contact-form', '.modal-overlay', '.modal-overlay_hidden');
 
   pageScrollHandler();
+  asideNavigationHandler();
 }
 
 // Common functions
@@ -45,12 +46,19 @@ function pageScrollHandler() {
     let currentScrollPosition = window.scrollY;
     let sections = document.querySelectorAll('main > section');
     let mainMenuItems = document.querySelectorAll('.navigation .navigation__link');
+    let asideMenuItems = document.querySelectorAll('.aside-navigation .aside-navigation__link');
     sections.forEach(function(section) {
       if (section.offsetTop - 95 <= currentScrollPosition && (section.offsetTop + section.offsetHeight) > currentScrollPosition) {
         mainMenuItems.forEach(function(item) {
           item.classList.remove('navigation__link_active');
           if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
             item.classList.add('navigation__link_active');  
+          };
+        });
+        asideMenuItems.forEach(function(item) {
+          item.classList.remove('aside-navigation__link_active');
+          if (section.getAttribute('class') === item.getAttribute('href').substring(1)) {
+            item.classList.add('aside-navigation__link_active');  
           };
         });
       }
@@ -238,5 +246,31 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
   buttonModal.addEventListener('click', function(e){
     resetFormFields(form);
     hideModal(overlayWrapper, modalOverlayHiddenClass);
+  }, false);
+}
+
+// Aside navigation
+
+function asideNavigationHandler() {
+  let asideButton = document.querySelector('.mobile-menu-icon');
+  let asidePanel = document.querySelector('.aside-panel');
+  let isClosed = true;
+  let asideMenu = document.querySelector('.aside__navigation');
+  asideMenu.addEventListener('click', function(e) {
+    asidePanel.classList.remove('aside-panel_open');
+    asideButton.classList.remove('mobile-menu-icon_open');
+    isClosed = true;
+  }, false);
+  asideButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (isClosed) {
+      asideButton.classList.add('mobile-menu-icon_open');
+      asidePanel.classList.add('aside-panel_open');
+      isClosed = false;
+    } else {
+      asidePanel.classList.remove('aside-panel_open');
+      asideButton.classList.remove('mobile-menu-icon_open');
+      isClosed = true;
+    }
   }, false);
 }
