@@ -254,11 +254,13 @@ function addFormHandler(formClass, modalOverlayClass, modalOverlayHiddenClass) {
 function asideNavigationHandler() {
   let asideButton = document.querySelector('.mobile-menu-icon');
   let asidePanel = document.querySelector('.aside-panel');
+  let asideModal = document.querySelector('.aside-modal');
   let isClosed = true;
   let asideMenu = document.querySelector('.aside__navigation');
   asideMenu.addEventListener('click', function(e) {
     asidePanel.classList.remove('aside-panel_open');
     asideButton.classList.remove('mobile-menu-icon_open');
+    asideModal.classList.remove('aside-modal_active');
     isClosed = true;
   }, false);
   asideButton.addEventListener('click', function(e) {
@@ -266,10 +268,12 @@ function asideNavigationHandler() {
     if (isClosed) {
       asideButton.classList.add('mobile-menu-icon_open');
       asidePanel.classList.add('aside-panel_open');
+      asideModal.classList.add('aside-modal_active');
       isClosed = false;
     } else {
       asidePanel.classList.remove('aside-panel_open');
       asideButton.classList.remove('mobile-menu-icon_open');
+      asideModal.classList.remove('aside-modal_active');
       isClosed = true;
     }
   }, false);
