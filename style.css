@@ -1017,7 +1017,7 @@ html {
   .header__logo {
     height: 71px;
   }
-  /* TODO */
+
   .navigation {
     display: none;
   }
@@ -1059,6 +1059,19 @@ html {
 
   .contact-section__column_70 {
     margin-bottom: 32px;
+  }
+
+  .footer-info__column_50 {
+    flex: 1 0 100%;
+  }
+
+  .footer-info__column_50:first-child {
+    display: none;
+  }
+
+  .footer__social {
+    float: none;
+    text-align: center;
   }
 }
 
@@ -1229,20 +1242,6 @@ html {
   .contact-form__button {
     width: 100%;
   }
-
-  .footer-info__column_50 {
-    flex: 1 0 100%;
-  }
-
-  .footer-info__column_50:first-child {
-    display: none;
-  }
-
-  .footer__social {
-    float: none;
-    text-align: center;
-  }
-
 } 
 
 @media (max-width: 767px) {
@@ -1358,5 +1357,13 @@ html {
   .tag {
     padding-bottom: 7px;
     display: inline-flex;
+  }
+
+  .slider__iphone {
+    left: -38px;
+  }
+
+  .slider__iphone_horizontal {
+    left: 443px;
   }
 }
