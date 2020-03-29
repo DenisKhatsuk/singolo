@@ -76,6 +76,12 @@ html {
   overflow: hidden;
 }
 
+/* -- Mobile Menu -- */
+
+.mobile-menu-icon {
+  display: none;
+}
+
 /* -- Logo -- */
 
 .logo {
@@ -456,6 +462,7 @@ html {
 
 .team-member__column_30 {
   flex: 1 0 31%;
+  margin-right: 20px;
   margin-bottom: 34px;
 }
 
