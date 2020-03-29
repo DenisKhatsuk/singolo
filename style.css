@@ -94,7 +94,7 @@ html {
   position: absolute;
   left: -100%;
   display: none;
-  height: 100vh;
+  height: 101vh;
   width: 278px;
   background: #2D303A;
   box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
@@ -102,7 +102,7 @@ html {
 }
 
 .aside-panel_open {
-  left: 0;
+  left: -1%;
 }
 
 .aside-panel__logo {
